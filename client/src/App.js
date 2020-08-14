@@ -1,20 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
+import styled from "styled-components";
 
-import { IconName } from "react-icons/fi";
 import Bookmarks from "./Bookmarks";
 import Homefeed from "./Homefeed";
 import Notifications from "./Notifications";
 import Profile from "./Profile";
 import TweetDetails from "./TweetDetails";
+import Sidebar from "./Sidebar";
 
 // Basically the main application. The switch helps in identifying which route/path to go and display corresponding information
 const App = () => {
   return (
-    <div>
+    <Wrapper>
+      <GlobalStyles />
+      <Sidebar />
       <Router>
-        <GlobalStyles />
         <Switch>
           <Route exact path="/">
             <Homefeed />
@@ -33,8 +35,13 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 export default App;
