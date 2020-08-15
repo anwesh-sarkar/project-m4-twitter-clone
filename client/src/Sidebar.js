@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "./logo.svg";
 
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 
 import { AiOutlineHome, AiOutlineBell } from "react-icons/ai";
@@ -11,7 +11,6 @@ import Bookmarks from "./Bookmarks";
 import Homefeed from "./Homefeed";
 import Notifications from "./Notifications";
 import Profile from "./Profile";
-import TweetDetails from "./TweetDetails";
 import { COLORS } from "./constants";
 
 //This part creates the Sidebar with all the links. Clicking on each link is supposed to display the component to the side. I guess that is solved with Fetching user data section. The Components tag defines each component with its icon that is being pulled from react-icons.
@@ -19,41 +18,36 @@ const Sidebar = () => {
   return (
     <Wrapper>
       <GlobalStyles />
-      <Router>
-        <Image src={logo} alt="cat-logo" />
 
-        <NavigationLink exact to="/">
-          <Components>
-            <AiOutlineHome />
-            <Homefeed />
-          </Components>
-        </NavigationLink>
+      <Image src={logo} alt="cat-logo" />
 
-        <NavigationLink to="/notifications">
-          <Components>
-            <AiOutlineBell />
-            <Notifications />
-          </Components>
-        </NavigationLink>
+      <NavigationLink exact to="/">
+        <Components>
+          <AiOutlineHome />
+          <Homefeed />
+        </Components>
+      </NavigationLink>
 
-        <NavigationLink to="/bookmarks">
-          <Components>
-            <BsBookmark />
-            <Bookmarks />
-          </Components>
-        </NavigationLink>
+      <NavigationLink to="/notifications">
+        <Components>
+          <AiOutlineBell />
+          <Notifications />
+        </Components>
+      </NavigationLink>
 
-        <NavigationLink to="/tweet/:tweetId">
-          <TweetDetails />
-        </NavigationLink>
+      <NavigationLink to="/bookmarks">
+        <Components>
+          <BsBookmark />
+          <Bookmarks />
+        </Components>
+      </NavigationLink>
 
-        <NavigationLink to="/:profileId">
-          <Components>
-            <BsPerson />
-            <Profile />
-          </Components>
-        </NavigationLink>
-      </Router>
+      <NavigationLink to="/:profileId">
+        <Components>
+          <BsPerson />
+          <Profile />
+        </Components>
+      </NavigationLink>
     </Wrapper>
   );
 };
