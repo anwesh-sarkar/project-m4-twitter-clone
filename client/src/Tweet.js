@@ -43,6 +43,7 @@ const Avatar = styled.img`
 const TweetWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 `;
 
 const TweetHead = styled.div`
@@ -57,13 +58,13 @@ const DisplayName = styled.span`
 
 const Handle = styled.span`
   color: grey;
-  font-size: 0.9em;
   margin-left: 5px;
+  font-size: 15px;
 `;
 
 const TimeStamp = styled.span`
   color: grey;
-  font-size: 0.9em;
+  font-size: 15px;
 `;
 
 const TweetBody = styled.div`
@@ -74,12 +75,14 @@ const TweetBody = styled.div`
 const TweetContent = styled.div`
   padding: 10px 0;
   line-height: 130%;
+  font-size: 18px;
 `;
 
 const TweetImage = styled.img`
-  width: 80%;
-  border-radius: 8%;
-  height: 400px;
+  max-width: 100%;
+  position: relative;
+  border-radius: 20px;
+  max-height: 100%;
   object-fit: fill;
 `;
 
