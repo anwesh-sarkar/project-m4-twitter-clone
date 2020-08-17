@@ -3,13 +3,17 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import { CurrentUserProvider } from "./CurrentUserContext";
+import { FeedContextProvider } from "./FeedContext";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CurrentUserProvider>
-      <App />
-    </CurrentUserProvider>
+    {/* UserProvider needs to wrap App, so the context provider can be used in App */}
+    <FeedContextProvider>
+      <CurrentUserProvider>
+        <App />
+      </CurrentUserProvider>
+    </FeedContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

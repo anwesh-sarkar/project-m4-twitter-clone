@@ -13,7 +13,7 @@ import Notifications from "./Notifications";
 import Profile from "./Profile";
 import { COLORS } from "./constants";
 
-//This part creates the Sidebar with all the links. Clicking on each link is supposed to display the component to the side. I guess that is solved with Fetching user data section. The Components tag defines each component with its icon that is being pulled from react-icons.
+//This part creates the Sidebar with all the links. Clicking on each link is supposed to display the component to the side. The Components tag defines each component with its icon that is being pulled from react-icons.
 const Sidebar = () => {
   return (
     <Wrapper>
@@ -24,28 +24,28 @@ const Sidebar = () => {
       <NavigationLink exact to="/">
         <Components>
           <AiOutlineHome />
-          <Homefeed />
+          Homefeed
         </Components>
       </NavigationLink>
 
       <NavigationLink to="/notifications">
         <Components>
           <AiOutlineBell />
-          <Notifications />
+          Notifications
         </Components>
       </NavigationLink>
 
       <NavigationLink to="/bookmarks">
         <Components>
           <BsBookmark />
-          <Bookmarks />
+          Bookmarks
         </Components>
       </NavigationLink>
 
       <NavigationLink to="/:profileId">
         <Components>
           <BsPerson />
-          <Profile />
+          Profile
         </Components>
       </NavigationLink>
     </Wrapper>

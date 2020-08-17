@@ -4,6 +4,7 @@ import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
 
 import { CurrentUserContext } from "./CurrentUserContext";
+import { FeedContext } from "./FeedContext";
 import ReactLoading from "react-loading";
 import Bookmarks from "./Bookmarks";
 import Homefeed from "./Homefeed";
@@ -16,7 +17,9 @@ import { COLORS } from "./constants";
 // Basically the main application. The switch helps in identifying which route/path to go and display corresponding information
 const App = () => {
   const { currentUser, status } = React.useContext(CurrentUserContext);
+  const { feed, feedStatus } = React.useContext(FeedContext);
   if (status === "loading") {
+    // If Status is loading, using a ReactLoading component to load a spinner. React css styles are weird.
     return (
       <ReactLoading
         type="spin"
@@ -29,7 +32,7 @@ const App = () => {
     return (
       <Wrapper>
         <GlobalStyles />
-
+        {/* Sidebar needs to be defined within Router because an application cannot have more than one Router - this also shows that when I switch tabs on Sidebar, the corresponding static component is delivered */}
         <Router>
           <Sidebar />
           <Switch>
