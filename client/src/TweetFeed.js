@@ -1,15 +1,24 @@
+// This file is to display all the tweets on Homefeed
 import React from "react";
 import styled from "styled-components";
 import { format } from "date-fns";
+import TweetActions from "./TweetActions";
 
-const Tweet = ({
+const TweetFeed = ({
   displayName,
   avatar,
   handle,
   tweetContent,
   timeStamp,
   image,
+  liked,
+  retweeted,
+  numOfLikes,
+  numRetweets,
 }) => {
+  const [isLiked, setIsLiked] = React.useState(liked);
+  const [numLikes, setNumLikes] = React.useState(numOfLikes);
+  const [isRetweeted, setIsRetweeted] = React.useState(retweeted);
   const formattedDate = format(new Date(timeStamp), "LLL Do");
   return (
     <Wrapper>
@@ -24,6 +33,15 @@ const Tweet = ({
           <TweetContent>{tweetContent}</TweetContent>
           <TweetImage src={image} />
         </TweetBody>
+        <TweetActions
+          isLiked={isLiked}
+          isRetweeted={isRetweeted}
+          setIsLiked={setIsLiked}
+          setIsRetweeted={setIsRetweeted}
+          numLikes={numLikes}
+          setNumLikes={setNumLikes}
+          numRetweets={numRetweets}
+        />
       </TweetWrapper>
     </Wrapper>
   );
@@ -79,11 +97,11 @@ const TweetContent = styled.div`
 `;
 
 const TweetImage = styled.img`
-  max-width: 100%;
+  max-width: 80%;
   position: relative;
   border-radius: 20px;
-  max-height: 100%;
+  max-height: 80%;
   object-fit: fill;
 `;
 
-export default Tweet;
+export default TweetFeed;

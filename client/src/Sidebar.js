@@ -7,10 +7,6 @@ import GlobalStyles from "./GlobalStyles";
 
 import { AiOutlineHome, AiOutlineBell } from "react-icons/ai";
 import { BsPerson, BsBookmark } from "react-icons/bs";
-import Bookmarks from "./Bookmarks";
-import Homefeed from "./Homefeed";
-import Notifications from "./Notifications";
-import Profile from "./Profile";
 import { COLORS } from "./constants";
 
 //This part creates the Sidebar with all the links. Clicking on each link is supposed to display the component to the side. The Components tag defines each component with its icon that is being pulled from react-icons.

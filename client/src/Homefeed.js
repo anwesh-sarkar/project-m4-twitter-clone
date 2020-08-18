@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactLoading from "react-loading";
 import { COLORS } from "./constants";
 import { FeedContext } from "./FeedContext";
-import Tweet from "./Tweet";
+import TweetFeed from "./TweetFeed";
 
 const Homefeed = () => {
   const { feed, feedStatus } = React.useContext(FeedContext);
@@ -23,7 +23,7 @@ const Homefeed = () => {
           const allTweets = feed.tweetsById[tweetId];
           console.log(allTweets);
           return (
-            <Tweet
+            <TweetFeed
               key={tweetId + index}
               displayName={allTweets.author.displayName}
               avatar={allTweets.author.avatarSrc}
@@ -31,6 +31,10 @@ const Homefeed = () => {
               tweetContent={allTweets.status}
               timeStamp={allTweets.timestamp}
               image={allTweets.media.length > 0 ? allTweets.media[0].url : null}
+              liked={allTweets.isLiked}
+              retweeted={allTweets.isRetweeted}
+              numOfLikes={allTweets.numLikes}
+              numRetweets={allTweets.numRetweets}
             />
           );
         })}
