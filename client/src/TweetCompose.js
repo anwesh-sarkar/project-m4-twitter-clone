@@ -78,6 +78,8 @@ const TweetCompose = ({ avatarSrc }) => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  border-bottom: 10px solid lightgrey;
+  padding: 10px;
 `;
 
 const Avatar = styled.img`

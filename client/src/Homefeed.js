@@ -18,10 +18,11 @@ const Homefeed = () => {
         <TweetCompose avatarSrc={currentUser.profile.avatarSrc} />
         {feed.tweetIds.map((tweetId, index) => {
           const allTweets = feed.tweetsById[tweetId];
-          console.log(allTweets);
+          console.log(tweetId);
           return (
             <TweetFeed
               key={tweetId + index}
+              tweetId={tweetId}
               displayName={allTweets.author.displayName}
               avatar={allTweets.author.avatarSrc}
               handle={allTweets.author.handle}
@@ -43,5 +44,7 @@ const Homefeed = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 80%;
+  padding: 10px;
 `;
 export default Homefeed;

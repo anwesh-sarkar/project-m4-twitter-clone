@@ -10,7 +10,8 @@ export const FeedContextProvider = ({ children }) => {
     fetch("/api/me/home-feed", {
       method: "GET",
       headers: {
-        accept: "application/json",
+        Accept: "application/json",
+        "Content-Type": "application/json ",
       },
     })
       .then((res) => res.json())

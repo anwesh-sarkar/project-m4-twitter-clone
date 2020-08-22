@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import TweetActions from "./TweetActions";
 
 const TweetFeed = ({
+  tweetId,
   displayName,
   avatar,
   handle,
@@ -19,7 +20,8 @@ const TweetFeed = ({
   const [isLiked, setIsLiked] = React.useState(liked);
   const [numLikes, setNumLikes] = React.useState(numOfLikes);
   const [isRetweeted, setIsRetweeted] = React.useState(retweeted);
-  const formattedDate = format(new Date(timeStamp), "LLL Do");
+  const [numOfRetweets, setNumRetweets] = React.useState(numRetweets);
+  const formattedDate = format(new Date(timeStamp), "LLL do");
   return (
     <Wrapper>
       <Avatar src={avatar} />
@@ -34,13 +36,15 @@ const TweetFeed = ({
           <TweetImage src={image} />
         </TweetBody>
         <TweetActions
+          tweetId={tweetId}
           isLiked={isLiked}
           isRetweeted={isRetweeted}
           setIsLiked={setIsLiked}
           setIsRetweeted={setIsRetweeted}
           numLikes={numLikes}
           setNumLikes={setNumLikes}
-          numRetweets={numRetweets}
+          numRetweets={numOfRetweets}
+          setNumRetweets={setNumRetweets}
         />
       </TweetWrapper>
     </Wrapper>
@@ -50,6 +54,9 @@ const TweetFeed = ({
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
 `;
 
 const Avatar = styled.img`
@@ -62,6 +69,7 @@ const TweetWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  width: 100%;
 `;
 
 const TweetHead = styled.div`
