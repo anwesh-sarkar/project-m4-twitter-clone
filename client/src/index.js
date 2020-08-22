@@ -9,11 +9,12 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     {/* UserProvider needs to wrap App, so the context provider can be used in App */}
-    <FeedContextProvider>
-      <CurrentUserProvider>
+
+    <CurrentUserProvider>
+      <FeedContextProvider>
         <App />
-      </CurrentUserProvider>
-    </FeedContextProvider>
+      </FeedContextProvider>
+    </CurrentUserProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

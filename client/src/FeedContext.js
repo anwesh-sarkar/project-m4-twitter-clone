@@ -9,6 +9,9 @@ export const FeedContextProvider = ({ children }) => {
   React.useEffect(() => {
     fetch("/api/me/home-feed", {
       method: "GET",
+      headers: {
+        accept: "application/json",
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -20,7 +23,7 @@ export const FeedContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <FeedContext.Provider value={{ feed, feedStatus }}>
+    <FeedContext.Provider value={{ feed, setFeed, feedStatus, setFeedStatus }}>
       {children}
     </FeedContext.Provider>
   );

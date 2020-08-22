@@ -5,29 +5,22 @@ import styled from "styled-components";
 
 import { CurrentUserContext } from "./CurrentUserContext";
 import { FeedContext } from "./FeedContext";
-import ReactLoading from "react-loading";
+import LoadingSpinner from "./LoadingSpinner";
 import Bookmarks from "./Bookmarks";
 import Homefeed from "./Homefeed";
 import Notifications from "./Notifications";
 import Profile from "./Profile";
 import TweetDetails from "./TweetDetails";
 import Sidebar from "./Sidebar";
-import { COLORS } from "./constants";
 
 // Basically the main application. The switch helps in identifying which route/path to go and display corresponding information
 const App = () => {
   const { currentUser, status } = React.useContext(CurrentUserContext);
+  console.log(currentUser);
   const { feed, feedStatus } = React.useContext(FeedContext);
   if (status === "loading") {
     // If Status is loading, using a ReactLoading component to load a spinner. React css styles are weird.
-    return (
-      <ReactLoading
-        type="spin"
-        color={COLORS.primary}
-        height={"15%"}
-        width={"10%"}
-      />
-    );
+    return <LoadingSpinner />;
   } else {
     return (
       <Wrapper>
