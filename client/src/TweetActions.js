@@ -29,7 +29,7 @@ const TweetActions = ({
     fetch(`/api/tweet/${tweetId}/like`, {
       method: "PUT",
       body: JSON.stringify({
-        like: isLiked,
+        like: !isLiked,
       }),
       headers: {
         Accept: "application/json",
@@ -53,7 +53,7 @@ const TweetActions = ({
     fetch(`/api/tweet/${tweetId}/retweet`, {
       method: "PUT",
       body: JSON.stringify({
-        retweet: isRetweeted,
+        retweet: !isRetweeted,
       }),
       headers: {
         Accept: "application/json",

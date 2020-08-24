@@ -6,8 +6,10 @@ import { FeedContext } from "./FeedContext";
 import TweetFeed from "./TweetFeed";
 import TweetCompose from "./TweetCompose";
 
+// I can't figure out how to refresh the homefeed when going back to it. This needs more research.
+
 const Homefeed = () => {
-  const { currentUser, status } = React.useContext(CurrentUserContext);
+  const { currentUser } = React.useContext(CurrentUserContext);
   const { feed, feedStatus } = React.useContext(FeedContext);
   if (feedStatus === "loading") {
     return <LoadingSpinner />;

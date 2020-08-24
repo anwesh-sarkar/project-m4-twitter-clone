@@ -1,5 +1,6 @@
 // This file is to display all the tweets on Homefeed
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { format } from "date-fns";
 import TweetActions from "./TweetActions";
@@ -17,6 +18,12 @@ const TweetFeed = ({
   numOfLikes,
   numRetweets,
 }) => {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push(`/tweet/${tweetId}`);
+  }
+
   const [isLiked, setIsLiked] = React.useState(liked);
   const [numLikes, setNumLikes] = React.useState(numOfLikes);
   const [isRetweeted, setIsRetweeted] = React.useState(retweeted);
@@ -26,15 +33,25 @@ const TweetFeed = ({
     <Wrapper>
       <Avatar src={avatar} />
       <TweetWrapper>
-        <TweetHead>
-          <DisplayName>{displayName}</DisplayName>
-          <Handle>@{handle}</Handle>
-          <TimeStamp> - {formattedDate}</TimeStamp>
-        </TweetHead>
-        <TweetBody>
-          <TweetContent>{tweetContent}</TweetContent>
-          <TweetImage src={image} />
-        </TweetBody>
+        <TweetBodyWrapper
+          tabIndex="0"
+          onClick={handleClick}
+          onKeyDown={(ev) => {
+            if (ev.key === "Space" || ev.key === "Enter") {
+              handleClick();
+            }
+          }}
+        >
+          <TweetHead>
+            <DisplayName>{displayName}</DisplayName>
+            <Handle>@{handle}</Handle>
+            <TimeStamp> - {formattedDate}</TimeStamp>
+          </TweetHead>
+          <TweetBody>
+            <TweetContent>{tweetContent}</TweetContent>
+            <TweetImage src={image} />
+          </TweetBody>
+        </TweetBodyWrapper>
         <TweetActions
           tweetId={tweetId}
           isLiked={isLiked}
@@ -66,6 +83,11 @@ const Avatar = styled.img`
 `;
 
 const TweetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TweetBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
