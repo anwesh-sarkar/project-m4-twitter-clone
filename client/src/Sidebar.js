@@ -38,7 +38,7 @@ const Sidebar = () => {
         </Components>
       </NavigationLink>
 
-      <NavigationLink to="/:profileId">
+      <NavigationLink to="/treasurymog">
         <Components>
           <BsPerson />
           Profile

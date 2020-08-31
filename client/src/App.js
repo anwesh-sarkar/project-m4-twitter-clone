@@ -15,9 +15,7 @@ import Sidebar from "./Sidebar";
 
 // Basically the main application. The switch helps in identifying which route/path to go and display corresponding information
 const App = () => {
-  const { currentUser, status } = React.useContext(CurrentUserContext);
-  console.log(currentUser);
-  const { feed, feedStatus } = React.useContext(FeedContext);
+  const { status } = React.useContext(CurrentUserContext);
   if (status === "loading") {
     // If Status is loading, using a ReactLoading component to load a spinner. React css styles are weird.
     return <LoadingSpinner />;

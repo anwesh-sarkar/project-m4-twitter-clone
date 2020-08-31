@@ -7,7 +7,7 @@ export const FeedContextProvider = ({ children }) => {
   const [feedStatus, setFeedStatus] = React.useState("loading");
 
   React.useEffect(() => {
-    fetch("/api/me/home-feed", {
+    fetch(`/api/me/home-feed`, {
       method: "GET",
       headers: {
         Accept: "application/json",

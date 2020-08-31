@@ -8,7 +8,7 @@ import TweetCompose from "./TweetCompose";
 
 // I can't figure out how to refresh the homefeed when going back to it. This needs more research.
 
-const Homefeed = () => {
+const Homefeed = (profileId) => {
   const { currentUser } = React.useContext(CurrentUserContext);
   const { feed, feedStatus } = React.useContext(FeedContext);
   if (feedStatus === "loading") {

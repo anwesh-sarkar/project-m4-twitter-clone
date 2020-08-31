@@ -20,7 +20,7 @@ const TweetFeed = ({
 }) => {
   let history = useHistory();
 
-  function handleClick() {
+  function handleTweetClick() {
     history.push(`/tweet/${tweetId}`);
   }
 
@@ -35,10 +35,10 @@ const TweetFeed = ({
       <TweetWrapper>
         <TweetBodyWrapper
           tabIndex="0"
-          onClick={handleClick}
+          onClick={handleTweetClick}
           onKeyDown={(ev) => {
             if (ev.key === "Space" || ev.key === "Enter") {
-              handleClick();
+              handleTweetClick();
             }
           }}
         >
